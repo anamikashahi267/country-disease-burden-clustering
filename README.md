@@ -8,7 +8,7 @@ DiseaseScope is a React dashboard and Flask API for exploring disease-burden pro
 - [Data and methodology](#data-and-methodology)
 - [Requirements and setup](#requirements-and-setup)
 - [Run the application](#run-the-application)
-- [Use an alternate default-data archive](#use-an-alternate-default-data-archive)
+- [Configure the default-data archive](#configure-the-default-data-archive)
 - [Project structure](#project-structure)
 - [API reference](#api-reference)
 - [Dataset upload and limits](#dataset-upload-and-limits)
@@ -133,7 +133,7 @@ The Upload dataset page accepts CSV, XLSX, XLS, and ZIP files. A ZIP must contai
 
 Limits are 20 MB per uploaded file, 100 MB expanded ZIP size, 50,000 rows, 100 columns, 5,000 rows for clustering, and eight concurrent temporary uploads. Upload records expire after one hour and are cleared when the backend restarts. The upload workflow requires at least three rows and two model features.
 
-The default upload workflow automatically selects numeric candidate columns (excluding ID/year-like fields), imputes missing selected values with the median, standardizes features, and starts with up to four clusters. Users can inspect the data and choose features before analysis. The API also supports preprocessing previews, optional duplicate removal, missing-value strategies, categorical one-hot encoding, standardization choice, and either K-Means or hierarchical clustering.
+The default upload workflow automatically selects numeric candidate columns (excluding ID/year-like fields), imputes missing selected values with the median, standardizes features, and starts with up to four clusters. The API also supports preprocessing previews, optional duplicate removal, missing-value strategies, categorical one-hot encoding, standardization choice, and either K-Means or hierarchical clustering.
 
 Country/location labels are not model features. Silhouette calculations use a deterministic sample of up to 2,000 rows for larger uploads. The original download preserves the uploaded bytes. Processed CSV exports protect against spreadsheet-formula-leading text. Quality and analysis reports are JSON.
 
